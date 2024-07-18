@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index1.css">
+    <style>
+       
+    </style>
+</head>
+<body >
+    <div class="box">
+        <h2>Password Strength <span id="check">Check</span></h2>
+        <input type="password" id="password" placeholder="Enter your password">
+        <div class="password-strength"></div>
+        <div class="password-strength"></div>
+    </div>
+
+    <script>
+       let passwordInput= document.getElementById("password");
+       let passwordStrengths= document.querySelectorAll(".password-strength");
+       let check= document.getElementById("check");
+       passwordInput.addEventListener("input", function(event){
+        let password= event.target.value;
+        let degree= password.length *30;
+        let color;
+        let check_color;
+        let text;
+        if(degree<= 120){
+            color= "#ec2f29";
+            check_color= "#ec2f29";
+            text= "Weak";
+        }
+        else if(degree> 120 && degree<= 240){
+            color= "#ff9700";
+            check_color= "#ff9700";
+            text= "Medium";
+        }
+        else {
+            color= "#12ff12";
+            check_color= "#12ff12";
+            text= "Strong";
+        }
+        passwordStrengths.forEach(passwrodStrength=>{
+            passwrodStrength.style.background= `conic-gradient(${color} ${degree}deg, #1115 ${degree}deg)`;
+        })
+        // passwordStrengths.style.background= `conic-gradient(${color} ${degree}deg, #1115 ${degree}deg)`;
+        check.textContent= text;
+        check.style.color= check_color;
+       })
+    </script>
+    <!-- 1  30deg is weak red/ 2 60deg/ 3 80deg/ 4 100-->
+
+
+     <!-- 5 120deg is normal yellow -->
+      <!-- 8 is 240 deg normal yellow
+
+      9 is strong green 270deg
+      12 more 360deg strong green  -->
+
+</body>
+</html>

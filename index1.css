@@ -1,0 +1,54 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: consolas;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #333;
+
+}
+.box{
+    position: relative;
+    /* border: 3px solid green; */
+    width: 300px;
+    height: 50px;
+}
+.box h2{
+    position: absolute;
+    top: -40px;
+    font-weight: 500;
+    color: #fff;
+    font-size: 1.2em;
+}
+.box input{
+    position: absolute;
+    padding: 10px;
+    inset: 2px;
+    z-index: 10;
+    outline: none;
+    background: #333;
+    border: none;
+    color: #fff;
+}
+.box .password-strength{
+    position: absolute;
+    inset: -3px;
+    /* z-index: -1; */
+    background: #333;
+    /* border: 1px solid black; */
+}
+.box .password-strength:nth-child(3){
+    filter: blur(10px);
+    z-index: 0;
+}
+.box .password-strength:nth-child(4){
+    /* filter: blur(-8px); */
+    inset: 0;
+    z-index: 0;
+    /* background: white; */
+}
